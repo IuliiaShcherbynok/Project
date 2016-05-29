@@ -1,3 +1,5 @@
+package Tests;
+
 import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -14,13 +16,13 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest extends TestCase {
     protected static WebDriver driver = new FirefoxDriver();
 
-    @BeforeClass
+    @Before
     public void setUp() throws Exception {
         driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
-    @AfterClass
+    @After
     public void tearDown() throws Exception {
         driver.quit();
     }
