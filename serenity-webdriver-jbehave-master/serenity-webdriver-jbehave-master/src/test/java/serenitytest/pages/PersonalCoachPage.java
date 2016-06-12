@@ -1,6 +1,7 @@
 package serenitytest.pages;
 
 import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,21 +19,13 @@ import java.util.List;
 
 public class PersonalCoachPage extends PageObject {
 
-
-    protected static WebDriver driver = new FirefoxDriver();
-    //private String HomePage = "http://skillsup.ua/";
     private By AllNames = By.className("name");
     public By Header = By.className("greenHeader");
     public By Course = By.xpath("//div[@class='text']/p[1]");
 
 
-/*    public PersonalCoachPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }*/
-
     public void goToPersonalCoachPage(String name) {
-        List<WebElement> webElements = driver.findElements(AllNames);
+        List<WebElementFacade> webElements = findAll(AllNames);
         for (WebElement webElement : webElements) {
             if (webElement.getText().contains(name)) {
                 webElement.click();
@@ -43,12 +36,12 @@ public class PersonalCoachPage extends PageObject {
 
     public String checkTeacherName(String name) {
         goToPersonalCoachPage(name);
-        return driver.findElement(Header).getText();
+        return find(Header).getText();
     }
 
     public String checkTeacherCourse(String name) {
         goToPersonalCoachPage(name);
-        return driver.findElement(Course).getText();
+        return find(Course).getText();
 
     }
 

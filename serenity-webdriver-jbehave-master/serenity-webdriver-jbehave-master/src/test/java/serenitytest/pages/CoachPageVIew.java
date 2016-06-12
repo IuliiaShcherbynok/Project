@@ -12,23 +12,20 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.codehaus.groovy.runtime.DefaultGroovyMethods.find;
+import static org.codehaus.groovy.runtime.DefaultGroovyMethods.findAll;
+
 /**
- * Created by Iuliia on 31.05.2016.
+ * Created by Iuliia on 04.06.2016.
  */
+
 @DefaultUrl("http://skillsup.ua/")
-public class CoachPageView extends PageObject{
-    protected static WebDriver driver = new FirefoxDriver();
-    //  private String HomePage = "http://skillsup.ua/";
+
+public class CoachPageView extends PageObject {
     private By OurTeam = By.linkText("Наша команда");
     private By AllNames = By.className("name");
     private List CoachList = new ArrayList();
 
-
-    /*public CoachPageView(WebDriver driver) {
-        this.driver = driver;
-        driver.get(HomePage);
-        PageFactory.initElements(driver, this);
-    }*/
 
     public void goToTeamPage() {
         find(OurTeam).click();

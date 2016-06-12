@@ -1,0 +1,1 @@
+As a user I want to check if teachers are present in SkillsUp school ans what cource they teach
